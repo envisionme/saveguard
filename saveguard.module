@@ -55,4 +55,12 @@ function saveguard_admin_settings() {
  */
 function saveguard_form_alter ($form_id, &$form) {
   drupal_add_js(drupal_get_path('module', 'saveguard') .'/saveguard.js'); 
+  static $done;
+  if (!$done) {
+    $settings['saveguard'] = array( 
+      'msg' => variable_get('saveguard_message', NULL),
+    );
+    drupal_add_js($settings, 'setting');
+    $done = TRUE;
+  }
 }
