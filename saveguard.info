@@ -2,4 +2,4 @@
 name = SaveGuard
 description = Warn user when they are leaving a page with unsaved changes
 package = User Interface
-
+core = 6.x
