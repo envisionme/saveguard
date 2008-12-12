@@ -11,7 +11,7 @@
 /**
  * Implementation of hook_menu().
  */
-function saveguard_menu($may_cache) {
+function saveguard_menu() {
   $items['admin/settings/saveguard'] = array(
     'title' => 'SaveGuard',
     'description' => 'Settings for SaveGaurd',
