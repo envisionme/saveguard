@@ -1,7 +1,7 @@
 <?php
 // $Id$
 
-/** 
+/**
  * @file
  * Warn user when they are leaving a page with unsaved changes.
  *
@@ -10,10 +10,10 @@
 
 /**
  * Implementation of hook_menu().
- */ 
-function saveguard_menu ($may_cache) {
+ */
+function saveguard_menu($may_cache) {
   $items = array();
-  
+
   if ($may_cache) {
     $items[] = array(
       'path' => 'admin/settings/saveguard',
@@ -22,9 +22,9 @@ function saveguard_menu ($may_cache) {
       'callback' => 'drupal_get_form',
       'callback arguments' => array('saveguard_admin_settings'),
       'access' => user_access('administer site configuration'),
-     );
+    );
   }
-  
+
   return $items;
 }
 
@@ -39,7 +39,7 @@ function saveguard_admin_settings() {
     '#title' => t("Popup Message"),
     '#default_value' => variable_get('saveguard_message', NULL),
   );
-  
+
   return system_settings_form($form);
 }
 
@@ -53,11 +53,11 @@ function saveguard_admin_settings() {
  * @param $form
  *    array with form structure
  */
-function saveguard_form_alter ($form_id, &$form) {
-  drupal_add_js(drupal_get_path('module', 'saveguard') .'/saveguard.js'); 
+function saveguard_form_alter($form_id, &$form) {
+  drupal_add_js(drupal_get_path('module', 'saveguard') .'/saveguard.js');
   static $done;
   if (!$done) {
-    $settings['saveguard'] = array( 
+    $settings['saveguard'] = array(
       'msg' => variable_get('saveguard_message', NULL),
     );
     drupal_add_js($settings, 'setting');
