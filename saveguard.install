@@ -1,0 +1,9 @@
+<?php
+// $Id$
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function saveguard_uninstall() {
+  variable_del('saveguard_message');
+}
