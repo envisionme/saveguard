@@ -14,10 +14,10 @@
 function saveguard_menu() {
   $items['admin/settings/saveguard'] = array(
     'title' => 'SaveGuard',
-    'description' => 'Settings for SaveGaurd',
+    'description' => 'Set the popup message text.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('saveguard_admin_settings'),
-    'access callbac' => 'user_access',
+    'access callback' => 'user_access',
     'access arguments' => array('administer site configuration')
   );
 
